@@ -664,3 +664,4 @@ FodyWeavers.xsd
 # 깃이그노어 추가사항 
 migrations/
 *.sqlite
+temp.py
