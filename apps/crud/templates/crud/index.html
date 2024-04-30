@@ -1,0 +1,17 @@
+{% extends "crud/base.html" %}
+{% block title %} 대전 카페 {% endblock %}
+{% block content %}
+<body class="body">
+<div class="div">
+    <h1 class="title"> 가고싶은 카페 저장하기</h1>
+
+    {% if current_user.is_authenticated %}
+        <p><a class="btn btn-secondary" href="{{ url_for('crud.logout') }}">로그아웃</a></p>
+    {% else %}
+        <p><a class="btn btn-secondary"href="{{ url_for('crud.login') }}">로그인</a></p>
+    {% endif %}
+
+    <p><a class="btn btn-secondary" href="{{ url_for('crud.cafe_list') }}">대전광역시 카페정보</a></p>
+</div>
+</body>
+{% endblock %}

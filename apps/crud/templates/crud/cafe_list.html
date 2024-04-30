@@ -1,0 +1,37 @@
+{% extends "crud/base.html" %}
+{% block title %} 대전 카페 리스트 {% endblock %}
+{% block content %}
+<body class="body">
+<div class="div">
+    <table>
+        <tr>
+            <td class="td">
+    <h1 class="title">대전 카페 리스트</h1>
+
+    <ul>
+        {% for cafe in cafes %}
+            <li class="li">
+                <strong>{{ cafe.name }}</strong><br>
+                주소: {{ cafe.address }}<br>
+                메모: {{ cafe.text }}
+            </li>
+        {% endfor %}
+    </ul>
+            </td>
+            
+            <td class="td2">
+    <h2 class="title">추가/삭제하기</h2>
+    <ul>
+    {% for cafe in cafes %}
+        <li class="li2">{{ cafe.name }} - {{ cafe.address }} [ 메모: {{ cafe.text }} ] 
+            <form action="{{ url_for('crud.delete_cafe', id=cafe.id) }}" method="post"><button type="submit">삭제</button></form></li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-secondary" href="{{ url_for('crud.add_cafe') }}">카페 추가하기</a>
+    <a class="btn btn-secondary" href="{{ url_for('crud.index')}}">메인페이지</a>
+</td>    
+</tr>
+</table>
+</div>
+</body>
+{% endblock %}

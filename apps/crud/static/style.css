@@ -1,0 +1,49 @@
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    border-bottom: 3px solid white;
+    padding-bottom: 10px;
+}
+
+.span{
+    color: white;
+}
+
+
+.li{
+    font-size: 20px;
+    color: white;
+}
+
+.li2{
+    font-size: 18px;
+    color: white;
+}
+
+.body{
+    background-image: url(./cafe.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.div{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.td{
+    position: fixed;
+    left: 10%;
+
+}
+
+.td2{
+    position: fixed;
+    right: 50%;
+}

@@ -1,0 +1,36 @@
+{% extends "crud/base.html" %}
+{% block title %} 로그인 {% endblock %}
+{% block content %}
+<body class="body">
+<div class="div">
+<h2 class="title">로그인</h2>
+<form action="{{ url_for('crud.login') }}" method="post" novalidate="novalidate">
+
+    {% for message in get_flashed_messages() %}
+    <p style="color: red">{{ message }}</p>
+    {% endfor %}
+    
+    {{ form.csrf_token }}
+
+    <p>
+        <span class="span">{{ form.username.label }}</span>
+        {{ form.username(placeholder="아이디") }}
+        {% for error in form.username.errors %}
+        <span style="color: white;">{{ error }}</span>
+        {% endfor %}
+    </p>
+
+    <p>
+        <span class="span"> {{ form.password.label }}</span>
+        {{ form.password(placeholder="비밀번호") }}
+        {% for error in form.password.errors %}
+        <span style="color: white;">{{ error }}</span>
+        {% endfor %}
+    </p>
+
+    <p><input class="btn btn-secondary" type="submit" value="로그인" /></p>
+    <p ><a class="btn btn-secondary" href="{{ url_for('crud.index')}}">메인페이지</a></p>
+</div>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "crud/base.html" %}
+{% block title %} 카페추가 {% endblock %}
+{% block content %}
+
+<title>카페 추가하기</title>
+<body class="body">
+<div class="div">
+   
+<h2 class="title">카페 추가</h2>
+<form action="{{ url_for('crud.add_cafe') }}" method="post">
+
+{% for message in get_flashed_messages() %}
+<p style="color: red;">{{ message }}</p>
+{% endfor %}
+{{ form.csrf_token}}
+
+<p>
+    <span class="span">{{ form.name.label }}</span>
+    {{ form.name(size=30, placeholder="카페 이름")}}
+</p>
+
+{% for error in form.name.errors %}
+<span style="color: white">{{ error }}</span>
+{% endfor %}
+
+<p><span class="span">{{ form.address.label }}</span> {{ form.address(placeholder="카페 주소") }}</p>
+{% for error in form.address.errors %}
+<span style="color: white;">{{ error }}</span>
+{% endfor %}
+
+<p>
+    <span class="span">{{ form.text.label }}</span>
+    {{ form.text(placeholder="메모")}}
+</p>
+
+{% for error in form.text.errors %}
+<span style="color: white">{{ error }}</span>
+{% endfor %}
+<p><a  href="{{ url_for('crud.cafe_list')}}"><button type="submit" class="btn btn-secondary">추가</button></a></p>
+<p><a class="btn btn-secondary" href="{{ url_for('crud.index')}}">메인페이지</a></p>
+</form>
+</div>
+</body>
+{% endblock %}
